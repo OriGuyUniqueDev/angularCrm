@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     CustomerDashboardComponent,
     EmployeeDashboardComponent,
     PnfComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

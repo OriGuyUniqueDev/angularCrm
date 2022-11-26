@@ -1,21 +1,19 @@
-<form
-  #loginForm
-  (ngSubmit)="login()"
-  class="px-12  py-22 h-screen"
->
-<section class="top flex flex-col gap-14 items-center">
-      <div class="w-full bg-userOrange "></div>
-      <img width="145" height="120" src="assets/icons/logo.png" alt="logo" />
-      <h1 class="text-7xl text-center leading-[1.2]">
-        Welcome, Login to
-        <span class="text-userMediumPurple font-black underline">Start</span>
-      </h1>
-      <section class="middle font-light text-2xl text-center">
-          <p>Demo Username: user@crm.example</p>
-          <p>Demo Password: 123456789</p>
-      </section>
-      <section class="bottom form">
-        <app-login-form></app-login-form>
-      </section>
+<form #loginForm (ngSubmit)="login()" class="px-12 py-[4.5rem] h-screen">
+  <section class="top flex flex-col items-center mb-16">
+    <div class="w-full circle absolute -z-10 top-0 h-[43%] bg-userOrange"></div>
+    <div class="flex flex-col gap-8 items-center">
+        <img width="115" height="100" src="assets/icons/logo.png" alt="logo" />
+        <h1 class="text-7xl text-center leading-[1.2]">
+          Welcome, Login to
+          <span class="text-userMediumPurple font-bold underline boldFont">Start</span>
+        </h1>
+    </div>
+  </section>
+  <section class="middle font-light text-2xl text-center relative top-4 mb-16">
+    <p>Demo Username: user@crm.example</p>
+    <p>Demo Password: 123456789</p>
+  </section>
+  <section class="bottom form w-full">
+    <app-login-form></app-login-form>
   </section>
 </form>

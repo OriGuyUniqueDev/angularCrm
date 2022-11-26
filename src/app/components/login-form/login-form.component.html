@@ -1,1 +1,31 @@
-<p>login-form works!</p>
+<div class="flex flex-col gap-3">
+  <div class="form-floating username">
+    <input
+      type="email"
+      class="form-control border-2 border-userDarkPurple"
+      id="floatingInput"
+      placeholder="name@domain.com"
+    />
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div class="form-floating password">
+    <input
+      type="password"
+      class="form-control border-2 border-userDarkPurple"
+      id="floatingPassword"
+      placeholder="Password"
+    />
+    <label for="floatingPassword">Password</label>
+  </div>
+  <button
+    class="w-full h-20 border-userMediumPurple text-3xl font-bold text-userMediumPurple border-4 rounded-lg"
+  >
+    Login
+  </button>
+  <p class="text-4xl text-center">OR</p>
+  <button
+    class="w-full h-20 bg-userMediumPurple text-3xl font-bold text-white rounded-lg"
+  >
+    Login With Google
+  </button>
+</div>

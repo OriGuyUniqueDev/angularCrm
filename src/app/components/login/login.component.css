@@ -1,0 +1,5 @@
+.circle{
+    border-radius: 0 0 50% 50%;
+    /* filter: blur(3px);*/
+    box-shadow: 0rem 0.8rem 2rem rgba(0, 0, 0, 0.31); 
+}
