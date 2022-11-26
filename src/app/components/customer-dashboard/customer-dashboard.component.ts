@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-dashboard.component.css']
 })
 export class CustomerDashboardComponent implements OnInit {
-
+  name:string = "Ori Guy"
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,32 @@
-<div class="w-full circle absolute -z-10 top-0 h-[35%] bg-userOrange"></div>
+<div class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
+<app-navbar></app-navbar>
+<main class="mx-24 mt-3">
+  <div id="headerTitles">
+    <h2 class="text-3xl">Hello {{ name }} 👋🏼</h2>
+    <h1 class="text-6xl font-black mt-3">
+      My <span class="text-userMediumPurple">Customers</span>
+    </h1>
+  </div>
+  <div id="searchContainer" class="w-full mt-8">
+    <input
+      class="form-control-lg w-full h-16"
+      type="search"
+      placeholder="Search"
+    />
+    <div class="btnContainer flex flex-row justify-between mt-8">
+      <button
+        class="w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl hover:bg-userMediumPurple hover:text-white"
+      >
+        Filter <i class="fa-solid fa-sort ml-3"></i>
+      </button>
+      <button
+        class="w-48 h-14 rounded-lg text-white bg-userMediumPurple text-2xl hover:bg-userDarkPurple"
+      >
+        Add New <i class="fa-solid fa-plus ml-3"></i>
+      </button>
+    </div>
+  </div>
+  <div class="customerCardContainer mt-40">
+    <app-customer-card-mobile></app-customer-card-mobile>
+  </div>
+</main>

@@ -15,6 +15,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CustomerCardMobileComponent } from './components/customer-card-mobile/customer-card-mobile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     EmployeeDashboardComponent,
     PnfComponent,
     LoginFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    CustomerCardMobileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
