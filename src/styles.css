@@ -6,10 +6,12 @@
 
 html{
     font-size: 10px;
+
 }
 button{
     font-family: 'Outfit', sans-serif;
 }
 body{
     font-family: 'Outfit', sans-serif;
+    overflow: hidden;
 }
