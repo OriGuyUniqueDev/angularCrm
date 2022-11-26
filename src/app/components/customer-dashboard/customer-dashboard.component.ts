@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDashboardComponent implements OnInit {
   name:string = "Ori Guy"
+  showEditMenu:boolean = false
   constructor() { }
 
   ngOnInit(): void {

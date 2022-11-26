@@ -1,1 +1,30 @@
-<p>customer-card-mobile works!</p>
+<article class="w-full rounded-lg   flex flex-col gap-6">
+    <div class="card  border-2 border-userMediumPurple px-4 py-4 drop-shadow-2xl flex flex-col gap-6 relative">
+        <i (click)="showEditMenu = !showEditMenu" class="fa-solid fa-ellipsis-vertical text-3xl absolute right-4 top-4"></i>
+        <ng-container *ngIf="showEditMenu">
+            <div class="cardMenu absolute right-10 top-2 border-2 border-userDarkPurple rounded-2xl py-3 px-3 ">
+                <div class="flex flex-row gap-6 text-3xl ">
+                    <i class="fa-solid fa-pen text-green-500"></i>
+                    <p class="">Edit</p>
+                </div>
+                <div class="flex flex-row gap-6 text-3xl ">
+                    <i class="fa-solid fa-trash-can text-red-500"></i>
+                    <p class="">Delete</p>
+                </div>
+            </div>
+        </ng-container>
+        <div class="flex flex-row gap-6 text-3xl ">
+            <i class="fa-solid fa-user"></i>
+            <p class="">{{name}}</p>
+        </div>
+        <div class="flex flex-row gap-6 text-3xl">
+            <i class="fa-solid fa-phone"></i>
+            <p>{{tel}}</p>
+        </div>
+        <div class="flex flex-row gap-6 text-3xl">
+            <i class="fa-solid fa-at"></i>
+            <p>{{email}}</p>
+        </div>
+    </div>
+
+</article>

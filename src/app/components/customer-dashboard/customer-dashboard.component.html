@@ -13,9 +13,9 @@
       type="search"
       placeholder="Search"
     />
-    <div class="btnContainer flex flex-row justify-between mt-8">
-      <button
-        class="w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl hover:bg-userMediumPurple hover:text-white"
+    <div class="btnContainer relative flex flex-row justify-between mt-8">
+      <button (click)="showEditMenu = !showEditMenu"
+        class=" relative w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl"
       >
         Filter <i class="fa-solid fa-sort ml-3"></i>
       </button>
@@ -25,8 +25,25 @@
         Add New <i class="fa-solid fa-plus ml-3"></i>
       </button>
     </div>
+    <ng-container *ngIf="showEditMenu">
+      <div class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3  border-2 border-userDarkPurple rounded-2xl py-3 px-3 ">
+        <div class="flex gap-2 flex-row text-3xl text-bold">
+          <input type="radio"  name="firstName" id="firstName">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="flex gap-2 flex-row text-3xl text-bold">
+          <input type="radio"  name="lastName" id="lastName">
+          <label for="lastName">Last Name</label>
+        </div>
+        <div class="flex gap-2 flex-row text-3xl text-bold">
+          <input type="radio"  name="phone" id="phone">
+          <label for="phone">Phone</label>
+        </div>
+   
+      </div>
+  </ng-container>
   </div>
-  <div class="customerCardContainer mt-40">
+  <div class="customerCardContainer mt-48">
     <app-customer-card-mobile></app-customer-card-mobile>
   </div>
 </main>
