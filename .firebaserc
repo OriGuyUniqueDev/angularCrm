@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularcrm-origuy": {
+      "hosting": {
+        "angularCRM": [
+          "angularcrm-origuy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularcrm-origuy"
+  }
+}
