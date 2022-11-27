@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, UserCredential } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, UserCredential } from '@angular/fire/auth';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -17,5 +17,9 @@ export class UserService {
   }
   logout(){
     return this.auth.signOut()
+  }
+
+  register(newUser:User):Promise<UserCredential>{
+    return createUserWithEmailAndPassword(this.auth,newUser.email,newUser.password)
   }
 }

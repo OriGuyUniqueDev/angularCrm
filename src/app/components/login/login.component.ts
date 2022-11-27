@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
   constructor(private us: UserService, private router: Router) {}
-
+loginFailed:boolean = false
   ngOnInit(): void {}
 
   login() {
@@ -38,15 +38,16 @@ export class LoginComponent implements OnInit {
         );
         this.router.navigateByUrl('customerDashboard');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => this.loginFailed = true);
   }
   loginWithGoogle() {
     this.us
       .loginGoogle()
       .then((data) => {
+        sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('email', data.user.displayName as string);
         this.router.navigateByUrl('customerDashboard');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => this.loginFailed = true);
   }
 }

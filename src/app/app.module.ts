@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CustomerCardMobileComponent } from './components/customer-card-mobile/customer-card-mobile.component';
 import { OffCanvasComponent } from './components/off-canvas/off-canvas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginFormComponent,
     NavbarComponent,
     CustomerCardMobileComponent,
-    OffCanvasComponent
+    OffCanvasComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

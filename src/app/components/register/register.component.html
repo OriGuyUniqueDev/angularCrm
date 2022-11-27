@@ -1,0 +1,47 @@
+<form #registerForm="ngForm" (ngSubmit)="register()" class="px-12 py-[4.5rem] h-screen">
+    <section class="top flex flex-col items-center mb-16">
+      <div class="w-full circle absolute -z-10 top-0 h-[43%] bg-userOrange"></div>
+      <div class="flex flex-col gap-8 items-center">
+        <img width="115" height="100" src="assets/icons/logo.png" alt="logo" />
+        <h1 class="text-7xl text-center leading-[1.2]">
+          Hey, <span class="text-userMediumPurple font-bold underline boldFont"
+          >Happy</span
+        > to see you
+          
+        </h1>
+      </div>
+    </section>
+    <section class="bottom form w-full">
+      <div class="flex flex-col gap-3">
+        <div class="form-floating username">
+          <input
+            type="email"
+            name="email"
+            class="form-control border-2 border-userDarkPurple"
+            id="floatingInput"
+            placeholder="name@domain.com"
+            [(ngModel)]="user.email"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating password">
+          <input
+            type="password"
+            name="password"
+            class="form-control border-2 border-userDarkPurple"
+            id="floatingPassword"
+            placeholder="Password"
+            [(ngModel)]="user.password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button
+          class="w-full h-20 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
+        >
+        <i class="fa-solid fa-cash-register mr-6"></i> Register
+        </button>
+      </div>
+    </section>
+  </form>
+  
