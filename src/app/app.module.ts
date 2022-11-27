@@ -17,6 +17,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CustomerCardMobileComponent } from './components/customer-card-mobile/customer-card-mobile.component';
 import { OffCanvasComponent } from './components/off-canvas/off-canvas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { OffCanvasComponent } from './components/off-canvas/off-canvas.component
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

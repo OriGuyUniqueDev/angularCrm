@@ -13,7 +13,7 @@ button {
 }
 body {
   font-family: "Outfit", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 textarea:focus,
 input[type="text"]:focus,
