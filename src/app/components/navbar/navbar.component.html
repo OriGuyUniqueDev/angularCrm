@@ -1,6 +1,9 @@
+<ng-container *ngIf="showOffCanvas">
+    <app-off-canvas  (onHide)="changeHide($event)"></app-off-canvas>
+</ng-container>
 <header>
     <nav class="mx-12 h-28 flex flex-row items-center justify-between">
         <img width="40" height="30" src="assets/icons/logo.png" alt="">
-        <img src="assets/icons/sidebarClose.png" class="" alt="">
+        <img (click)="showOffCanvas = !showOffCanvas" src="assets/icons/sidebarClose.png" class="" alt="">
     </nav>
 </header>

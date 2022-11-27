@@ -16,6 +16,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CustomerCardMobileComponent } from './components/customer-card-mobile/customer-card-mobile.component';
+import { OffCanvasComponent } from './components/off-canvas/off-canvas.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CustomerCardMobileComponent } from './components/customer-card-mobile/c
     PnfComponent,
     LoginFormComponent,
     NavbarComponent,
-    CustomerCardMobileComponent
+    CustomerCardMobileComponent,
+    OffCanvasComponent
   ],
   imports: [
     BrowserModule,

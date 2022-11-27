@@ -6,3 +6,6 @@
 *{
     transition: 0.25s all linear;
 }
+.cardMenu{
+    backdrop-filter: blur(3px);
+}
