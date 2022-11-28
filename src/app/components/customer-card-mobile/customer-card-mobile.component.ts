@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Customer } from 'src/app/interfaces/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
@@ -8,21 +8,12 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./customer-card-mobile.component.css']
 })
 export class CustomerCardMobileComponent implements OnInit {
-name:string = 'Ori Guy'
-tel:string = '0547520899'
-email:string = 'origuy2021@gmail.com'
 showEditMenu:boolean = false
 customerArr!:Customer[]
-  constructor(private cs:CustomerService) { }
+@Input() customer!:Customer
+  constructor() { }
 
   ngOnInit(): void {
-    this.getAllData()
   }
-  getAllData(){
-    this.cs.getAllCustomers().subscribe((data:Customer[]) => {
-      this.customerArr = data
-      console.log(data);
-      
-    })
-  }
+
 }

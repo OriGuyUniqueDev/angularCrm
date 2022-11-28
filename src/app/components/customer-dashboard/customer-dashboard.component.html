@@ -43,7 +43,9 @@
       </div>
   </ng-container>
   </div>
-  <div class="customerCardContainer mt-48">
-    <app-customer-card-mobile></app-customer-card-mobile>
+  <div class="customerCardContainer flex flex-col gap-6 mt-48">
+    <article class="w-full rounded-lg " *ngFor="let customer of customerArr">
+      <app-customer-card-mobile [customer]="customer"></app-customer-card-mobile>
+    </article>
   </div>
 </main>
