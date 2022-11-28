@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private us: UserService, private router: Router) {}
 loginFailed:boolean = false
   ngOnInit(): void {}
-
+  
   login() {
     this.us
       .login(this.user)
