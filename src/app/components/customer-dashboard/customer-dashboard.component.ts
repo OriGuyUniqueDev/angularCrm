@@ -5,22 +5,22 @@ import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-customer-dashboard',
   templateUrl: './customer-dashboard.component.html',
-  styleUrls: ['./customer-dashboard.component.css']
+  styleUrls: ['./customer-dashboard.component.css'],
 })
 export class CustomerDashboardComponent implements OnInit {
-  name:string = sessionStorage.getItem('email') as string
-  showEditMenu:boolean = false
-  customerArr!:Customer[]
-  constructor(private cs:CustomerService) { }
+  name: string = sessionStorage.getItem('email') as string;
+  showEditMenu: boolean = false;
+  showLoader: boolean = true;
+  customerArr!: Customer[];
+  constructor(private cs: CustomerService) {}
 
   ngOnInit(): void {
-    this.getAllData()
+    this.getAllData();
   }
-  getAllData(){
-    this.cs.getAllCustomers().subscribe((data:Customer[]) => {
-      this.customerArr = data
-      console.log(data);
-      
-    })
+  getAllData() {
+    this.cs.getAllCustomers().subscribe((data: Customer[]) => {
+      this.customerArr = data;
+      this.showLoader = false
+    });
   }
 }
