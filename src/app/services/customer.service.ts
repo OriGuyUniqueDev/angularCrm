@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { collection, collectionData, deleteDoc, doc, Firestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Customer } from '../interfaces/customer';
 
@@ -12,5 +12,9 @@ export class CustomerService {
 
   getAllCustomers():Observable<Customer[]>{
     return collectionData(this.customerRef,{idField:'id'}) as Observable<Customer[]>
+  }
+  deleteCustomer(customer:Customer):Promise<void>{
+    const customerDocRef = doc(this.firestore,`customers/${customer.id}`)
+    return deleteDoc(customerDocRef) 
   }
 }

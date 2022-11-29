@@ -19,6 +19,7 @@ import { CustomerCardMobileComponent } from './components/customer-card-mobile/c
 import { OffCanvasComponent } from './components/off-canvas/off-canvas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 
 
 
@@ -34,6 +35,7 @@ import { RegisterComponent } from './components/register/register.component';
     CustomerCardMobileComponent,
     OffCanvasComponent,
     RegisterComponent,
+    AddCustomerComponent,
   ],
   imports: [
     BrowserModule,

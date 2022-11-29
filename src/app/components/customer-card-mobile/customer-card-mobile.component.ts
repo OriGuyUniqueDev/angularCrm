@@ -24,9 +24,13 @@ export class CustomerCardMobileComponent implements OnInit {
 showEditMenu:boolean = false
 customerArr!:Customer[]
 @Input() customer!:Customer
-  constructor() { }
+  constructor(private cs:CustomerService) { }
 
   ngOnInit(): void {
   }
-
+deleteCustomer(customer:Customer){
+  if(confirm(`Are You Sure You Want to Delete: ${customer.firstname} ${customer.lastname}`)){
+    this.cs.deleteCustomer(customer).then(data => console.log(data)).catch((err) => console.log(err))
+  }
+}
 }
