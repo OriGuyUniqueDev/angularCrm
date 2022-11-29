@@ -33,7 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
     NavbarComponent,
     CustomerCardMobileComponent,
     OffCanvasComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
