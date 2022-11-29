@@ -1,12 +1,15 @@
-
-    <div class="relative z-30"  *ngIf="showOffCanvas" [@slide]="showOffCanvas ? 'open' : 'close'">
-
-        <app-off-canvas   (onHide)="changeHide($event)"></app-off-canvas>
-    </div>
+<div class="relative z-30" *ngIf="showOffCanvas" @slide>
+  <app-off-canvas (onHide)="changeHide($event)"></app-off-canvas>
+</div>
 
 <header>
-    <nav class="mx-12 h-28 flex flex-row items-center justify-between">
-        <img width="40" height="30" src="assets/icons/logo.png" alt="">
-        <img (click)="showOffCanvas = !showOffCanvas" src="assets/icons/sidebarClose.png" class="" alt="">
-    </nav>
+  <nav class="mx-12 h-28 flex flex-row items-center justify-between">
+    <img width="40" height="30" src="assets/icons/logo.png" alt="" />
+    <img
+      (click)="showOffCanvas = !showOffCanvas"
+      src="assets/icons/sidebarClose.png"
+      class=""
+      alt=""
+    />
+  </nav>
 </header>

@@ -1,11 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/interfaces/customer';
 import { CustomerService } from 'src/app/services/customer.service';
+import {trigger,state,style,animate,transition,} from '@angular/animations';
 
 @Component({
   selector: 'app-customer-dashboard',
   templateUrl: './customer-dashboard.component.html',
   styleUrls: ['./customer-dashboard.component.css'],
+  animations: [
+    trigger('fade',[
+      transition(':enter',[
+        style({opacity:0}),
+        animate('0.25s',style({opacity:1}))
+      ]),
+      transition(':leave',[
+        style({opacity:1}),
+        animate('0.5s',style({opacity:0}))
+      ]),
+    ])
+  ]
 })
 export class CustomerDashboardComponent implements OnInit {
   name: string = sessionStorage.getItem('email') as string;
