@@ -27,11 +27,14 @@ export class CustomerDashboardComponent implements OnInit {
   showEditMenu: boolean = false;
   showLoader: boolean = true;
   customerArr!: Customer[];
+  search:string = ''
+  filterSearch:string = ''
   constructor(private cs: CustomerService, private modal:NgbModal) {}
 
   ngOnInit(): void {
     this.getAllData();
   }
+ 
   getAllData() {
     this.cs.getAllCustomers().subscribe((data: Customer[]) => {
       this.customerArr = data;

@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
+import { AllFilterPipe } from './pipes/all-filter.pipe';
 
 
 
@@ -38,6 +39,7 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     RegisterComponent,
     AddCustomerComponent,
     EditCustomerComponent,
+    AllFilterPipe,
   ],
   imports: [
     BrowserModule,

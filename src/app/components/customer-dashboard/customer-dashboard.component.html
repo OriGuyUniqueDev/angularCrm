@@ -12,42 +12,56 @@
       class="form-control-lg w-full h-16"
       type="search"
       placeholder="Search"
+      [(ngModel)]="search"
     />
     <div class="btnContainer relative flex flex-row justify-between mt-8">
-      <button (click)="showEditMenu = !showEditMenu"
-        class=" relative w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl"
+      <button
+        (click)="showEditMenu = !showEditMenu"
+        class="relative w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl"
       >
         Filter <i class="fa-solid fa-sort ml-3"></i>
       </button>
-      <button (click)="addCustomer()"
+      <button
+        (click)="addCustomer()"
         class="w-48 h-14 rounded-lg text-white bg-userMediumPurple text-2xl hover:bg-userDarkPurple"
       >
         Add New <i class="fa-solid fa-plus ml-3"></i>
       </button>
     </div>
-    <ng-container  *ngIf="showEditMenu">
-      <div @fade class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3  border-2 border-userDarkPurple rounded-2xl py-3 px-3 ">
+    <ng-container *ngIf="showEditMenu">
+      <form
+        #filterForm="ngForm"
+        @fade
+        class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3 border-2 border-userDarkPurple rounded-2xl py-3 px-3"
+      >
         <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="checkbox"  name="firstName" id="firstName">
+          <input type="radio" name="radioCheck" id="firstName" />
           <label for="firstName">First Name</label>
         </div>
         <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="checkbox"  name="lastName" id="lastName">
+          <input type="radio" name="radioCheck" id="lastName" />
           <label for="lastName">Last Name</label>
         </div>
         <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="checkbox"  name="phone" id="phone">
+          <input type="radio" name="radioCheck" id="phone" />
           <label for="phone">Phone</label>
         </div>
-   
-      </div>
-  </ng-container>
+      </form>
+    </ng-container>
   </div>
 
   <div class="customerCardContainer flex flex-col gap-6 mt-48">
-    <iframe *ngIf="showLoader" src="https://embed.lottiefiles.com/animation/97943"></iframe>
-    <article class="w-full rounded-lg " *ngFor="let customer of customerArr">
-      <app-customer-card-mobile [customer]="customer"></app-customer-card-mobile>
+    <iframe
+      *ngIf="showLoader"
+      src="https://embed.lottiefiles.com/animation/97943"
+    ></iframe>
+    <article
+      class="w-full rounded-lg"
+      *ngFor="let customer of customerArr | allFilter:'firstname':search"
+    >
+      <app-customer-card-mobile
+        [customer]="customer"
+      ></app-customer-card-mobile>
     </article>
   </div>
 </main>
