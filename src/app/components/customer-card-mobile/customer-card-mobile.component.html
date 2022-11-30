@@ -3,7 +3,7 @@
         <i (click)="showEditMenu = !showEditMenu" class="fa-solid fa-ellipsis-vertical text-3xl absolute right-4 top-4"></i>
         <ng-container *ngIf="showEditMenu">
             <div @fade class="cardMenu absolute right-10 top-2 border-2 border-userDarkPurple rounded-2xl py-3 px-3 ">
-                <div class="flex flex-row gap-6 text-3xl ">
+                <div (click)="editCustomer(customer)" class="flex flex-row gap-6 text-3xl ">
                     <i class="fa-solid fa-pen text-green-500"></i>
                     <p class="">Edit</p>
                 </div>
@@ -28,3 +28,4 @@
     </div>
 
 </article>
+

@@ -1,6 +1,6 @@
-<form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="addData()">
+<form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="editData()">
     <h1 class="text-5xl my-5  leading-[1.2]">
-        add
+        Edit
         <span class="text-userMediumPurple font-bold underline boldFont"
           >Customer</span
         >
@@ -13,7 +13,7 @@
           name="firstname"
           class="form-control border-2 border-userDarkPurple"
           id="floatingInput"
-          placeholder="firstname"
+          [value]="customer.firstname"
           [(ngModel)]="customer.firstname"
         />
         <label for="floatingInput">Email address</label>
@@ -24,7 +24,6 @@
           name="lastname"
           class="form-control border-2 border-userDarkPurple"
           id="floatinglastname"
-          placeholder="lastname"
           [(ngModel)]="customer.lastname"
         />
         <label for="floatinglastname">lastname</label>
@@ -35,7 +34,7 @@
           name="phone"
           class="form-control border-2 border-userDarkPurple"
           id="floatingphone"
-          placeholder="phone"
+          [value]="customer.phone"
           [(ngModel)]="customer.phone"
         />
         <label for="floatingphone">phone</label>
@@ -46,11 +45,11 @@
           name="email"
           class="form-control border-2 border-userDarkPurple"
           id="email"
-          placeholder="email"
+          [value]="customer.email"
           [(ngModel)]="customer.email"
         />
         <label for="email">email</label>
       </div>
-      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" >add</button>
+      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" >Edit</button>
     </div>
 </form>

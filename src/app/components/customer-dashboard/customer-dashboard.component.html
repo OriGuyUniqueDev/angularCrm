@@ -19,7 +19,7 @@
       >
         Filter <i class="fa-solid fa-sort ml-3"></i>
       </button>
-      <button
+      <button (click)="addCustomer()"
         class="w-48 h-14 rounded-lg text-white bg-userMediumPurple text-2xl hover:bg-userDarkPurple"
       >
         Add New <i class="fa-solid fa-plus ml-3"></i>
@@ -43,6 +43,7 @@
       </div>
   </ng-container>
   </div>
+
   <div class="customerCardContainer flex flex-col gap-6 mt-48">
     <iframe *ngIf="showLoader" src="https://embed.lottiefiles.com/animation/97943"></iframe>
     <article class="w-full rounded-lg " *ngFor="let customer of customerArr">

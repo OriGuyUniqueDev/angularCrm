@@ -20,6 +20,7 @@ import { OffCanvasComponent } from './components/off-canvas/off-canvas.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
+import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
 
 
@@ -36,6 +37,7 @@ import { AddCustomerComponent } from './components/add-customer/add-customer.com
     OffCanvasComponent,
     RegisterComponent,
     AddCustomerComponent,
+    EditCustomerComponent,
   ],
   imports: [
     BrowserModule,
