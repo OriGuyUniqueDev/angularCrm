@@ -6,11 +6,11 @@ import { Customer } from '../interfaces/customer';
 })
 export class AllFilterPipe implements PipeTransform {
 
-  transform(customers:Customer[], propName:(keyof Customer),value:string): Customer[] {
+  transform(customers:Customer[], propName:keyof Customer,value:string): Customer[] {
     let filteredCustomers:Customer[] = []
     
+    if(customers){
     for(let customer of customers){
-      if(customers.length > 0){
         if((customer[propName] as string).toLowerCase().includes(value.toLowerCase())){
           filteredCustomers.push(customer)
         }
