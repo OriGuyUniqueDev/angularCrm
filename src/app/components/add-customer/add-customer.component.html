@@ -1,11 +1,11 @@
 <form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="addData()" novalidate>
-    <h1 class="text-5xl my-5  leading-[1.2]">
-        add
+  
+    <h1 class="text-4xl my-5  leading-[1.2]">
+        Great, Let's Add a New
         <span class="text-userMediumPurple font-bold underline boldFont"
-          >Customer</span
-        >
-        Details
+          >Customer</span>
       </h1>
+      
     <div class="flex flex-col gap-3">
       <div class="form-floating firstname">
         <input
@@ -39,7 +39,7 @@
       </div>
       <div class="form-floating phone">
         <input
-          type="number"
+          type="text"
           pattern="\d*"
           name="phone"
           class="form-control border-2 border-userDarkPurple"
@@ -69,6 +69,6 @@
         <label for="email">email</label>
         <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg">wrong email format, cannot be empty and example@gmail.com</small>
       </div>
-      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >add</button>
+      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >ADD <span><i class="fa-solid fa-champagne-glasses ml-4"></i></span></button>
     </div>
 </form>

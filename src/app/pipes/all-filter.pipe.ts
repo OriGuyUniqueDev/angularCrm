@@ -10,6 +10,8 @@ export class AllFilterPipe implements PipeTransform {
     let filteredCustomers:Customer[] = []
     
     if(customers){
+      console.log(typeof propName);
+      
     for(let customer of customers){
         if((customer[propName] as string).toLowerCase().includes(value.toLowerCase())){
           filteredCustomers.push(customer)

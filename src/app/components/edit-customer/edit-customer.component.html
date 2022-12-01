@@ -1,10 +1,10 @@
 <form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="editData()">
-    <h1 class="text-5xl my-5  leading-[1.2]">
-        Edit
+    <h1 class="text-4xl my-5  leading-[1.2]">
+        It's Time to Update a 
         <span class="text-userMediumPurple font-bold underline boldFont"
           >Customer</span
         >
-        Details
+        <i class="fa-solid fa-exclamation text-userMediumPurple ml-2"></i>
       </h1>
     <div class="flex flex-col gap-3">
       <div class="form-floating firstname">
@@ -66,6 +66,6 @@
         <label for="email">email</label>
         <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg">wrong email format, cannot be empty and example@gmail.com</small>
       </div>
-      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit</button>
+      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i></button>
     </div>
 </form>
