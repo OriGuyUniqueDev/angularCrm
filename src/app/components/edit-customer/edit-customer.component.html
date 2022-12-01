@@ -66,6 +66,7 @@
         <label for="email">email</label>
         <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg">wrong email format, cannot be empty and example@gmail.com</small>
       </div>
-      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i></button>
+      <button *ngIf="!isAdded; else added" class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i></button>
     </div>
+    <ng-template  #added><iframe src="https://embed.lottiefiles.com/animation/95088"></iframe></ng-template>
 </form>

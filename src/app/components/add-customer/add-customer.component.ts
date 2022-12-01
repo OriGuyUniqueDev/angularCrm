@@ -10,8 +10,6 @@ export class AddCustomerComponent implements OnInit {
   @Input() id?:string
   customer:Customer = {firstname:'',lastname:'',phone:'',email:''}
   isAdded:boolean = false
-  notAdded:string = 'ADD <span><i class="fa-solid fa-champagne-glasses ml-4"></i></span>'
-  added:string = '<iframe src="https://embed.lottiefiles.com/animation/95088"></iframe>'
   constructor(private modal:NgbModal,private cs:CustomerService,private activeModal:NgbActiveModal) { }
 
   ngOnInit(): void {
@@ -22,7 +20,7 @@ export class AddCustomerComponent implements OnInit {
       setTimeout(() => {
         this.activeModal.close()
         this.isAdded = false
-      }, 2000);
+      }, 3000);
     })
     }
 }

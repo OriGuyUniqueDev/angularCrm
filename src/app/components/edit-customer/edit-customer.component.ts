@@ -11,6 +11,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class EditCustomerComponent implements OnInit {
 @Input() id?:string
 customer:Customer = {firstname:'',lastname:'',phone:'',email:''}
+isAdded:boolean = false
   constructor(private modal:NgbModal,private cs:CustomerService,private activeModal:NgbActiveModal) { }
 
   ngOnInit(): void {
@@ -21,7 +22,12 @@ customer:Customer = {firstname:'',lastname:'',phone:'',email:''}
     }
   }
 editData(){
-this.cs.updateCustomer(this.customer)
-this.activeModal.close()
+this.cs.updateCustomer(this.customer).then(() => {
+  this.isAdded = true
+  setTimeout(() => {
+    this.activeModal.close()
+    this.isAdded = false
+  }, 3000);
+})
 }
 }
