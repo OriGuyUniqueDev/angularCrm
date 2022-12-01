@@ -15,8 +15,12 @@
           id="floatingInput"
           [value]="customer.firstname"
           [(ngModel)]="customer.firstname"
+          #firstname="ngModel"
+          minlength="2"
+          required
         />
         <label for="floatingInput">First Name</label>
+        <small  *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg">first name must be at least 2 characters</small>
       </div>
       <div class="form-floating lastname">
         <input
@@ -25,8 +29,12 @@
           class="form-control border-2 border-userDarkPurple"
           id="floatinglastname"
           [(ngModel)]="customer.lastname"
+          #lastname="ngModel"
+          minlength="2"
+          required
         />
         <label for="floatinglastname">Last Name</label>
+        <small  *ngIf="!lastname?.valid &&(lastname?.touched)" class="text-danger  text-lg">last name must be at least 2 characters</small>
       </div>
       <div class="form-floating phone">
         <input
@@ -36,8 +44,12 @@
           id="floatingphone"
           [value]="customer.phone"
           [(ngModel)]="customer.phone"
+          #phone="ngModel"
+          minlength="10"
+          required
         />
         <label for="floatingphone">phone</label>
+        <small  *ngIf="!phone?.valid &&(phone?.touched)" class="text-danger  text-lg">phone must be at least 10 characters</small>
       </div>
       <div class="form-floating email">
         <input
@@ -47,9 +59,13 @@
           id="email"
           [value]="customer.email"
           [(ngModel)]="customer.email"
+          email
+          #email="ngModel"
+          required
         />
         <label for="email">email</label>
+        <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg">wrong email format, cannot be empty and example@gmail.com</small>
       </div>
-      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" >Edit</button>
+      <button class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit</button>
     </div>
 </form>
