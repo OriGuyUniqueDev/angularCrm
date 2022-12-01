@@ -9,12 +9,20 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class AddCustomerComponent implements OnInit {
   @Input() id?:string
   customer:Customer = {firstname:'',lastname:'',phone:'',email:''}
+  isAdded:boolean = false
+  notAdded:string = 'ADD <span><i class="fa-solid fa-champagne-glasses ml-4"></i></span>'
+  added:string = '<iframe src="https://embed.lottiefiles.com/animation/95088"></iframe>'
   constructor(private modal:NgbModal,private cs:CustomerService,private activeModal:NgbActiveModal) { }
 
   ngOnInit(): void {
   }
   addData(){
-    this.cs.addCustomer(this.customer)
-    this.activeModal.close()
+    this.cs.addCustomer(this.customer).then(() => {
+      this.isAdded = true
+      setTimeout(() => {
+        this.activeModal.close()
+        this.isAdded = false
+      }, 2000);
+    })
     }
 }
