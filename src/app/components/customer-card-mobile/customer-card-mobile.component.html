@@ -1,4 +1,4 @@
-<article class="w-full rounded-3xl   flex flex-col gap-6">
+<article @fade class="w-full rounded-3xl   flex flex-col gap-6">
     <div  class="card  border-4 border-userMediumPurple px-4 py-4 drop-shadow-2xl flex flex-col gap-6 relative">
         <i (click)="showEditMenu = !showEditMenu" class="fa-solid fa-ellipsis-vertical text-3xl absolute right-4 top-4 text-userOrange"></i>
         <ng-container *ngIf="showEditMenu">

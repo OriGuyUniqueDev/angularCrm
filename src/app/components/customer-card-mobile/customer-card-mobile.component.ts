@@ -5,6 +5,7 @@ import {trigger,state,style,animate,transition,} from '@angular/animations';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
 
+
 @Component({
   selector: 'app-customer-card-mobile',
   templateUrl: './customer-card-mobile.component.html',
@@ -13,11 +14,11 @@ import { EditCustomerComponent } from '../edit-customer/edit-customer.component'
     trigger('fade',[
       transition(':enter',[
         style({opacity:0}),
-        animate('0.25s',style({opacity:1}))
+        animate('0.35s',style({opacity:1}))
       ]),
       transition(':leave',[
         style({opacity:1}),
-        animate('0.5s',style({opacity:0}))
+        animate('0.35s',style({opacity:0}))
       ]),
     ])
   ]
