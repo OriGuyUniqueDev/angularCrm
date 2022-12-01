@@ -30,20 +30,21 @@
     </div>
     <ng-container *ngIf="showEditMenu">
       <form
+      (change)="radioChange($event)"
         #filterForm="ngForm"
         @fade
         class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3 border-2 border-userDarkPurple rounded-2xl py-3 px-3"
       >
-        <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="radio" name="radioCheck" id="firstName" />
+        <div  class="flex gap-2 flex-row text-3xl text-bold">
+          <input  value="firstname" checked type="radio" name="radioCheck" id="firstName" />
           <label for="firstName">First Name</label>
         </div>
         <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="radio" name="radioCheck" id="lastName" />
+          <input value="lastname" type="radio" name="radioCheck" id="lastName" />
           <label for="lastName">Last Name</label>
         </div>
         <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input type="radio" name="radioCheck" id="phone" />
+          <input value="phone" type="radio" name="radioCheck" id="phone" />
           <label for="phone">Phone</label>
         </div>
       </form>
@@ -57,7 +58,7 @@
     ></iframe>
     <article
       class="w-full rounded-lg"
-      *ngFor="let customer of customerArr | allFilter:'firstname':search"
+      *ngFor="let customer of customerArr | allFilter:filterSearch:search"
     >
       <app-customer-card-mobile
         [customer]="customer"

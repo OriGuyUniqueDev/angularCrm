@@ -4,6 +4,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import {trigger,state,style,animate,transition,} from '@angular/animations';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -28,7 +29,7 @@ export class CustomerDashboardComponent implements OnInit {
   showLoader: boolean = true;
   customerArr!: Customer[];
   search:string = ''
-  filterSearch:string = ''
+  filterSearch:keyof Customer = 'firstname'
   constructor(private cs: CustomerService, private modal:NgbModal) {}
 
   ngOnInit(): void {
@@ -47,6 +48,8 @@ export class CustomerDashboardComponent implements OnInit {
       centered:true,
       windowClass:'dark-modal'
     })
-   
+  }
+  radioChange(event:any){
+    this.filterSearch = event.target.defaultValue
   }
 }

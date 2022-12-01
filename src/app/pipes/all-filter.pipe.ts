@@ -6,7 +6,7 @@ import { Customer } from '../interfaces/customer';
 })
 export class AllFilterPipe implements PipeTransform {
 
-  transform(customers:Customer[], propName:keyof Customer,value:string): Customer[] {
+  transform(customers:Customer[], propName:(keyof Customer),value:string): Customer[] {
     let filteredCustomers:Customer[] = []
     
     for(let customer of customers){
