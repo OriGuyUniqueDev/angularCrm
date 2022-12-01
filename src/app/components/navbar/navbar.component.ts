@@ -7,6 +7,8 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { OffCanvasComponent } from '../off-canvas/off-canvas.component';
 
 
 @Component({
@@ -28,11 +30,14 @@ import {
 })
 export class NavbarComponent implements OnInit {
 showOffCanvas:boolean = false
-  constructor() { }
+  constructor(private offCanvas:NgbOffcanvas) { }
 
   ngOnInit(): void {
   }
   changeHide(val: boolean) {
     this.showOffCanvas = val;
+  }
+  openOffCanvas(){
+    this.offCanvas.open(OffCanvasComponent,{position:'end'})
   }
 }

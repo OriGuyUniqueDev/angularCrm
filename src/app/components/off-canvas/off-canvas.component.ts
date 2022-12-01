@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -12,11 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class OffCanvasComponent implements OnInit {
   isHide:Boolean=true
-  constructor(private us: UserService, private router: Router) {}
-  @Output() onHide = new EventEmitter<boolean>();
+  constructor(private us: UserService, private router: Router, private activeOffCanvas:NgbActiveOffcanvas) {}
   setHide() {
-    
-    this.onHide.emit(false);
+    this.activeOffCanvas.close()
   }
   ngOnInit(): void {}
   logout() {

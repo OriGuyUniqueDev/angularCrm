@@ -9,3 +9,17 @@
 .cardMenu{
     backdrop-filter: blur(3px);
 }
+button:hover .plusIcon{
+    animation: rotateIcon 8s linear both infinite;
+}
+@keyframes rotateIcon {
+    0%{
+        rotate: 0deg;
+    }
+    50%{
+        rotate: 180deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
