@@ -61,8 +61,9 @@
     <article
       class="w-full rounded-lg"
       *ngFor="let customer of customerArr | allFilter:filterSearch:search"
+
     >
-      <app-customer-card-mobile
+      <app-customer-card-mobile [routerLink]="customer.id" [state]="customer"
         [customer]="customer"
       ></app-customer-card-mobile>
     </article>

@@ -22,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { AllFilterPipe } from './pipes/all-filter.pipe';
+import { CustomerPageComponent } from './components/customer-page/customer-page.component';
 
 
 
@@ -40,6 +41,7 @@ import { AllFilterPipe } from './pipes/all-filter.pipe';
     AddCustomerComponent,
     EditCustomerComponent,
     AllFilterPipe,
+    CustomerPageComponent,
   ],
   imports: [
     BrowserModule,

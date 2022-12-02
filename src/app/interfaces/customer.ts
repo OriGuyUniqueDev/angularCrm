@@ -3,5 +3,6 @@ export interface Customer {
     lastname:string,
     email:string,
     phone:string,
-    id?:string
+    id?:string,
+    extra?:string
 }
