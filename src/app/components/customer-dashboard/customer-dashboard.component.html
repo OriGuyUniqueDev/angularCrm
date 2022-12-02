@@ -1,6 +1,6 @@
-<div class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
-<app-navbar></app-navbar>
-<main class="mx-24 mt-3">
+<div @fade  class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
+<app-navbar @fade></app-navbar>
+<main @fade class="mx-24 mt-3">
   <div id="headerTitles">
     <h2 class="text-3xl">Hello {{ name | uppercase }} 👋🏼</h2>
     <h1 class="text-6xl font-black mt-3">
@@ -69,4 +69,3 @@
     </article>
   </div>
 </main>
-<iframe src=""></iframe>
