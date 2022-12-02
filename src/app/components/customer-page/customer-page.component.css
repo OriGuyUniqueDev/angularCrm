@@ -1,0 +1,12 @@
+.circle{
+    border-radius: 0 0 50% 50%;
+    /* filter: blur(3px);*/
+    box-shadow: 0rem 0.8rem 2rem rgba(0, 0, 0, 0.31); 
+}
+input[type="text"],input[type="email"],textarea{
+    transition: 0.35s background-color ease-in-out;
+}
+.switch{
+    width: 4rem;
+    height: 2rem;
+}

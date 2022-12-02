@@ -38,6 +38,8 @@ export class CustomerDashboardComponent implements OnInit {
  
   getAllData() {
     this.cs.getAllCustomers().subscribe((data: Customer[]) => {
+      console.log(data);
+      
       this.customerArr = data;
       this.showLoader = false
     });

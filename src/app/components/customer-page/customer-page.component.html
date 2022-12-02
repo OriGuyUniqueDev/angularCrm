@@ -1,1 +1,38 @@
-<p>customer-page works!</p>
+<div class="w-full circle absolute -z-10 top-0 h-[25%] bg-userOrange"></div>
+<app-navbar></app-navbar>
+<div id="headerTitles" class="mx-24 mt-3">
+    <h1 class="text-5xl font-black mt-3">
+        <span class="text-userMediumPurple">{{customer.firstname + ' ' + customer.lastname + '\'s'}} </span> Card
+    </h1>
+</div>
+<main class="mx-24 mt-28">
+    <form #customerInfoForm="ngForm" (ngSubmit)="editData() ">
+        <div class="mb-3">
+            <label for="firstname" class="form-label text-3xl text-userMediumPurple">First Name</label>
+            <input type="text" disabled class="form-control form-control-lg" id="firstname" [value]="customer.firstname">
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label text-3xl text-userMediumPurple">Last Name</label>
+            <input type="text" disabled class="form-control form-control-lg" id="lastname" [value]="customer.lastname">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label text-3xl text-userMediumPurple">Phone</label>
+            <input type="text" disabled class="form-control form-control-lg" id="phone" [value]="customer.phone" >
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-3xl text-userMediumPurple">Email address</label>
+            <input type="email" disabled class="form-control form-control-lg" id="email" [value]="customer.email">
+          </div>
+          <div class="mb-3">
+            <label for="extraInfo" class="form-label text-3xl text-userMediumPurple">More Info</label>
+            <textarea  disabled class="form-control form-control-lg" id="extraInfo" [value]="(customer.extra === undefined) ? 'no extra note' : customer.extra"> </textarea>
+          </div>
+          <div class="  form-check form-switch flex gap-3 mb-3">
+            <input class=" switch form-check-input switch" type="checkbox" role="switch" id="editDataSwitch" [checked]="isChecked"  (click)="enableEdit($event)">
+            <label class="form-check-label text-3xl text-userMediumPurple" for="editDataSwitch">Edit Data ?</label>
+          </div>
+    
+          <button *ngIf="!isAdded; else added" class="w-full h-20 shadow-2xl mb-5 mt-3 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!customerInfoForm.valid" >Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i></button>
+        <ng-template  #added><iframe src="https://embed.lottiefiles.com/animation/95088"></iframe></ng-template>
+    </form>
+</main>
