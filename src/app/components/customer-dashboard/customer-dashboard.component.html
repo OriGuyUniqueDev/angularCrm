@@ -51,11 +51,13 @@
     </ng-container>
   </div>
 
-  <div class="customerCardContainer flex flex-col gap-6 mt-48">
+  <div class="w-full grid place-content-center">
     <iframe
       *ngIf="showLoader"
-      src="https://embed.lottiefiles.com/animation/97943"
+      src="https://embed.lottiefiles.com/animation/96372"
     ></iframe>
+  </div>
+  <div class="customerCardContainer flex flex-col gap-6 mt-48">
     <article
       class="w-full rounded-lg"
       *ngFor="let customer of customerArr | allFilter:filterSearch:search"
@@ -66,3 +68,4 @@
     </article>
   </div>
 </main>
+<iframe src=""></iframe>
