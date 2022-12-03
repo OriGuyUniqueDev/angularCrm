@@ -1,6 +1,6 @@
 <form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="addData()" novalidate>
   
-    <h1 class="text-4xl my-5  leading-[1.2]">
+    <h1  class="text-4xl my-5  leading-[1.2]">
         Great, Let's Add a New
         <span class="text-userMediumPurple font-bold underline boldFont"
           >Customer</span>
@@ -11,6 +11,7 @@
         <input
           type="text"
           name="firstname"
+          [autofocus]="false"
           class="form-control border-2 border-userDarkPurple"
           id="floatingInput"
           placeholder="firstname"
@@ -26,6 +27,7 @@
         <input
           type="text"
           name="lastname"
+          [autofocus]="false"
           class="form-control border-2 border-userDarkPurple"
           id="floatinglastname"
           placeholder="lastname"
@@ -41,6 +43,7 @@
         <input
           type="text"
           pattern="\d*"
+          [autofocus]="false"
           name="phone"
           class="form-control border-2 border-userDarkPurple"
           id="floatingphone"
@@ -58,6 +61,7 @@
         <input
           type="email"
           name="email"
+          [autofocus]="false"
           class="form-control border-2 border-userDarkPurple"
           id="email"
           placeholder="email"

@@ -1,9 +1,16 @@
-<div @fade class="w-full circle absolute -z-10 top-0 h-[40%] bg-userOrange"></div>
+<div @fade class="w-full circle absolute -z-10 top-0 h-[23rem] bg-userOrange"></div>
 <app-navbar></app-navbar>
 <main class="mx-24 mt-3">
-  <div id="headerTitles">
+  <div id="headerTitles" class="mb-40">
     <h2 class="text-3xl">Hello {{ name | uppercase }} 👋🏼</h2>
     <h1 class="text-6xl font-black mt-3">
       Our <span class="text-userMediumPurple">Talents</span>
     </h1>
   </div>
+  <div class="flex flex-col gap-6">
+    <article *ngFor="let employee of employeesArr" >
+      <app-employee-card-mobile [employee]="employee"></app-employee-card-mobile>
+    </article>
+  </div>
+
+</main>

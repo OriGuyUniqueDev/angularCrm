@@ -1,0 +1,31 @@
+<article @fade class="w-full rounded-3xl   flex flex-col gap-6">
+    <div  class="card  border-4 border-userMediumPurple px-4 py-4 drop-shadow-2xl flex flex-col gap-6 relative">
+        <div   class="flex flex-col gap-6 relative  ">
+            <div class="flex flex-row gap-6 text-3xl ">
+                <img class="shadow-xl" width="100" height="100" [src]="employee.profileImg" alt="">
+            </div>
+            <div class="flex flex-row gap-6 text-3xl ">
+                <i class="fa-solid fa-user text-userDarkPurple"></i>
+                <p class="overflow-ellipsis overflow-x-hidden whitespace-nowrap">{{employee.firstname | titlecase}} {{employee.lastname | titlecase}}</p>
+            </div>
+            <div class="flex flex-row gap-6 text-3xl">
+                <i class="fa-solid fa-phone text-userDarkPurple"></i>
+                <p class="overflow-ellipsis overflow-x-hidden whitespace-nowrap">{{employee.phone}}</p>
+            </div>
+            <div class="flex flex-row gap-6 text-3xl ">
+                <i class="fa-solid fa-at text-userDarkPurple"></i>
+                <p class="overflow-ellipsis overflow-x-hidden whitespace-nowrap">{{employee.email}}</p>
+            </div>
+            <div class="flex flex-row gap-6 text-3xl">
+                <i class="fa-solid fa-briefcase text-userDarkPurple"></i>
+                <p class="overflow-ellipsis overflow-x-hidden whitespace-nowrap">{{employee.role |uppercase}}</p>
+            </div>
+            <div class="flex flex-row gap-6 text-3xl">
+                <span>Manager: </span>
+                <p class="overflow-ellipsis overflow-x-hidden whitespace-nowrap">{{employee.managerOf.length ? 'Yes' : 'No'}}</p>
+            </div>
+        </div>
+    </div>
+
+</article>
+

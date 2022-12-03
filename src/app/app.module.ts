@@ -23,6 +23,7 @@ import { AddCustomerComponent } from './components/customersComponents/add-custo
 import { EditCustomerComponent } from './components/customersComponents/edit-customer/edit-customer.component';
 import { AllFilterPipe } from './pipes/all-filter.pipe';
 import { CustomerPageComponent } from './components/customersComponents/customer-page/customer-page.component';
+import { EmployeeCardMobileComponent } from './components/employeeComponents/employee-card-mobile/employee-card-mobile.component';
 
 
 
@@ -43,6 +44,7 @@ import { CustomerPageComponent } from './components/customersComponents/customer
     EditCustomerComponent,
     AllFilterPipe,
     CustomerPageComponent,
+    EmployeeCardMobileComponent,
   ],
   imports: [
     BrowserModule,
