@@ -136,5 +136,28 @@
         Add New <i class="plusIcon fa-solid fa-plus ml-3"></i>
       </button>
     </div>
+    <table class="border-collapse border-2 py-2 px-6 border-userDarkPurple mt-36 text-start ">
+      <thead>
+        <tr>
+          <th class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white ">ID</th>
+          <th class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white">Name</th>
+          <th class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white">Phone</th>
+          <th class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white">Email Address</th>
+          <th class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let customer of customerArr; let i = index">
+        <tr>
+          <td class=" text-4xl border-userDarkPurple border-2 py-2 px-6 text-center ">{{i+1}}</td>
+          <td class=" text-4xl border-userDarkPurple border-2 py-2 px-6 ">{{customer.firstname}} {{customer.lastname}}</td>
+          <td class=" text-4xl border-userDarkPurple border-2 py-2 px-6 ">{{customer.phone}}</td>
+          <td class=" text-4xl border-userDarkPurple border-2 py-2 px-6 ">{{customer.email}}</td>
+          <td class=" text-4xl border-userDarkPurple border-2 py-2 px-6 ">
+            <i class="fa-solid fa-circle-info"></i> | <i (click)="editCustomer(customer)" class="fa-solid fa-pen text-green-500"></i> | <i class="fa-solid fa-trash text-red-500"></i>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
   </main>
 </ng-template>
