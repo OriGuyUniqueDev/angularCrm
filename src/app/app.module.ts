@@ -13,7 +13,6 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { LoginFormComponent } from './components/loginResister/login-form/login-form.component';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { CustomerCardMobileComponent } from './components/customersComponents/customer-card-mobile/customer-card-mobile.component';
 import { OffCanvasComponent } from './components/navigation/off-canvas/off-canvas.component';
@@ -24,6 +23,7 @@ import { EditCustomerComponent } from './components/customersComponents/edit-cus
 import { AllFilterPipe } from './pipes/all-filter.pipe';
 import { CustomerPageComponent } from './components/customersComponents/customer-page/customer-page.component';
 import { EmployeeCardMobileComponent } from './components/employeeComponents/employee-card-mobile/employee-card-mobile.component';
+import { EmployeePipe } from './pipes/employee.pipe';
 
 
 
@@ -35,7 +35,6 @@ import { EmployeeCardMobileComponent } from './components/employeeComponents/emp
     CustomerDashboardComponent,
     EmployeeDashboardComponent,
     PnfComponent,
-    LoginFormComponent,
     NavbarComponent,
     CustomerCardMobileComponent,
     OffCanvasComponent,
@@ -45,6 +44,7 @@ import { EmployeeCardMobileComponent } from './components/employeeComponents/emp
     AllFilterPipe,
     CustomerPageComponent,
     EmployeeCardMobileComponent,
+    EmployeePipe,
   ],
   imports: [
     BrowserModule,

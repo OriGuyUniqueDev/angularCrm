@@ -19,16 +19,17 @@
       >
       <input
         type="text"
-        disabled
+        [disabled]="isDisabled"
         name="firstname"
         class="form-control form-control-lg"
         #firstname="ngModel"
+        placeholder="firstname"
         [(ngModel)]="customerToUpdate.firstname"
         [value]="customerToUpdate.firstname"
         id="firstname"
         minlength="2"
       />
-      <small class="block" *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
+      <small *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
     </div>
     <div class="mb-3">
       <label for="lastname" class="form-label text-3xl text-userMediumPurple"
@@ -36,7 +37,7 @@
       >
       <input
         type="text"
-        disabled
+        [disabled]="isDisabled"
         class="form-control form-control-lg"
         name="lastname"
         id="lastname"
@@ -53,7 +54,7 @@
       >
       <input
         type="text"
-        disabled
+        [disabled]="isDisabled"
         class="form-control form-control-lg"
         id="phone"
         name="phone"
@@ -70,7 +71,7 @@
       >
       <input
         type="email"
-        disabled
+        [disabled]="isDisabled"
         name="email"
         class="form-control form-control-lg"
         id="email"
@@ -79,14 +80,14 @@
         [(ngModel)]="customerToUpdate.email"
         #email="ngModel"
       />
-      <small  *ngIf="!email?.valid && email?.touched" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
+      <small  *ngIf="!email?.valid && (email?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
     </div>
     <div class="mb-3">
       <label for="extraInfo" class="form-label text-3xl text-userMediumPurple"
         >More Info</label
       >
       <textarea
-        disabled
+        [disabled]="isDisabled"
         class="form-control form-control-lg"
         id="extraInfo"
         name="extraInfo"
@@ -116,7 +117,7 @@
       @fade
       *ngIf="!isAdded; else added"
       class="w-full h-20 shadow-2xl mb-5 mt-3 z-50 relative bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
-      [disabled]=" isChecked === false"
+      [disabled]="!customerInfoForm.valid"
     >
       Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i>
     </button>

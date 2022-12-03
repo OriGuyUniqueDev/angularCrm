@@ -23,11 +23,14 @@ import { Employee } from 'src/app/interfaces/employee';
 export class EmployeeDashboardComponent implements OnInit {
   name: string = sessionStorage.getItem('email') as string;
   employeesArr!:Employee[]
+  showLoader: boolean = true;
+  search:string = ''
   constructor(private es:EmployeeService) { }
 
   ngOnInit(): void {
-    this.es.getAllEmployees().subscribe((employeesData) => {
+    this.es.getAllEmployees().subscribe((employeesData:Employee[]) => {
       this.employeesArr = employeesData
+      this.showLoader = false
     })
   }
 

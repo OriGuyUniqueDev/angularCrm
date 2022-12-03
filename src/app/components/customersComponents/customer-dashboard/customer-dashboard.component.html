@@ -1,71 +1,77 @@
-<div @fade  class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
-<app-navbar @fade></app-navbar>
-<main @fade class="mx-24 mt-3">
-  <div id="headerTitles">
-    <h2 class="text-3xl">Hello {{ name | uppercase }} 👋🏼</h2>
-    <h1 class="text-6xl font-black mt-3">
-      My <span class="text-userMediumPurple">Customers</span>
-    </h1>
-  </div>
-  <div id="searchContainer" class="w-full mt-8">
-    <input
-      class="form-control-lg w-full h-16"
-      type="search"
-      placeholder="Search"
-      [(ngModel)]="search"
-    />
-    <div class="btnContainer relative flex flex-row justify-between mt-8">
-      <button
-        (click)="showEditMenu = !showEditMenu"
-        class="relative w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl"
-      >
-        Filter <i class="fa-solid fa-sort ml-3"></i>
-      </button>
-      <button
-        (click)="addCustomer()"
-        class="w-48 h-14 rounded-lg text-white bg-userMediumPurple text-2xl hover:bg-userDarkPurple"
-      >
-        Add New <i class="plusIcon fa-solid fa-plus ml-3"></i>
-      </button>
+<ng-container *ngIf="innerWidth <=1200; else desktop">
+  <div @fade  class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
+  <app-navbar @fade></app-navbar>
+  <main @fade class="mx-24 mt-3">
+    <div id="headerTitles">
+      <h2 class="text-3xl">Hello {{ name | uppercase }} 👋🏼</h2>
+      <h1 class="text-6xl font-black mt-3">
+        My <span class="text-userMediumPurple">Customers</span>
+      </h1>
     </div>
-    <ng-container *ngIf="showEditMenu">
-      <form
-      (change)="radioChange($event)"
-        #filterForm="ngForm"
-        @fade
-        class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3 border-2 border-userDarkPurple rounded-2xl py-3 px-3 bg-white"
+    <div id="searchContainer" class="w-full mt-8">
+      <input
+        class="form-control-lg w-full h-16"
+        type="search"
+        placeholder="Search"
+        [(ngModel)]="search"
+      />
+      <div class="btnContainer relative flex flex-row justify-between mt-8">
+        <button
+          (click)="showEditMenu = !showEditMenu"
+          class="relative w-48 h-14 rounded-lg border-2 border-userMediumPurple text-2xl"
+        >
+          Filter <i class="fa-solid fa-sort ml-3"></i>
+        </button>
+        <button
+          (click)="addCustomer()"
+          class="w-48 h-14 rounded-lg text-white bg-userMediumPurple text-2xl hover:bg-userDarkPurple"
+        >
+          Add New <i class="plusIcon fa-solid fa-plus ml-3"></i>
+        </button>
+      </div>
+      <ng-container *ngIf="showEditMenu">
+        <form
+        (change)="radioChange($event)"
+          #filterForm="ngForm"
+          @fade
+          class="cardMenu w-fit absolute top-[27rem] flex flex-col gap-3 border-2 border-userDarkPurple rounded-2xl py-3 px-3 bg-white"
+        >
+          <div  class="flex gap-2 flex-row text-3xl text-bold">
+            <input  value="firstname" checked type="radio" name="radioCheck" id="firstName" />
+            <label for="firstName">First Name</label>
+          </div>
+          <div class="flex gap-2 flex-row text-3xl text-bold">
+            <input value="lastname" type="radio" name="radioCheck" id="lastName" />
+            <label for="lastName">Last Name</label>
+          </div>
+          <div class="flex gap-2 flex-row text-3xl text-bold">
+            <input value="phone" type="radio" name="radioCheck" id="phone" />
+            <label for="phone">Phone</label>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+  
+    <div class="w-full grid place-content-center">
+      <iframe
+        *ngIf="showLoader"
+        src="https://embed.lottiefiles.com/animation/96372"
+      ></iframe>
+    </div>
+    <div class="customerCardContainer flex flex-col gap-6 mt-48">
+      <article
+        class="w-full rounded-lg"
+        *ngFor="let customer of customerArr | allFilter:filterSearch:search"
+  
       >
-        <div  class="flex gap-2 flex-row text-3xl text-bold">
-          <input  value="firstname" checked type="radio" name="radioCheck" id="firstName" />
-          <label for="firstName">First Name</label>
-        </div>
-        <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input value="lastname" type="radio" name="radioCheck" id="lastName" />
-          <label for="lastName">Last Name</label>
-        </div>
-        <div class="flex gap-2 flex-row text-3xl text-bold">
-          <input value="phone" type="radio" name="radioCheck" id="phone" />
-          <label for="phone">Phone</label>
-        </div>
-      </form>
-    </ng-container>
-  </div>
-
-  <div class="w-full grid place-content-center">
-    <iframe
-      *ngIf="showLoader"
-      src="https://embed.lottiefiles.com/animation/96372"
-    ></iframe>
-  </div>
-  <div class="customerCardContainer flex flex-col gap-6 mt-48">
-    <article
-      class="w-full rounded-lg"
-      *ngFor="let customer of customerArr | allFilter:filterSearch:search"
-
-    >
-      <app-customer-card-mobile
-        [customer]="customer"
-      ></app-customer-card-mobile>
-    </article>
-  </div>
-</main>
+        <app-customer-card-mobile
+          [customer]="customer"
+        ></app-customer-card-mobile>
+      </article>
+    </div>
+  </main>
+</ng-container>
+<ng-template #desktop>
+  <div @fade  class="w-full circle absolute -z-10 top-0 h-[50%] bg-userOrange"></div>
+ 
+</ng-template>

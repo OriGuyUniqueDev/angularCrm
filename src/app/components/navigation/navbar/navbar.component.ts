@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -29,11 +29,16 @@ import { OffCanvasComponent } from '../off-canvas/off-canvas.component';
   ]
 })
 export class NavbarComponent implements OnInit {
-showOffCanvas:boolean = false
+  innerWidth: any = window.innerWidth;
+  showOffCanvas:boolean = (this.innerWidth >= 1200) ? true : false
   constructor(private offCanvas:NgbOffcanvas) { }
-
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
   }
+  @HostListener('window:resize', ['$event'])
+onResize() {
+  this.innerWidth = window.innerWidth;
+}
   changeHide(val: boolean) {
     this.showOffCanvas = val;
   }

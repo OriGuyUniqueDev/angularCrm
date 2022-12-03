@@ -36,6 +36,7 @@ export class CustomerPageComponent implements OnInit {
     email: '',
     extra: '',
   };
+  isDisabled:boolean = true
   fullName!:string
   isAdded: boolean = false;
   isChecked: boolean = false;
@@ -57,22 +58,15 @@ export class CustomerPageComponent implements OnInit {
       });
   }
   enableEdit(data: any) {
-    if (typeof data.target.checked === 'boolean') {
-      this.isChecked = data.target.checked;
-    }
-    let inputArr = document.querySelectorAll(
-      'input[type="text"],textArea,input[type="email"]'
-    );
+
     if (data.target.checked === true) {
-      inputArr.forEach((input) => {
-        input.removeAttribute('disabled');
-      });
+      this.isDisabled = false
     } else {
-      inputArr.forEach((input) => {
-        input.setAttribute('disabled', 'true');
-      });
+      this.isDisabled = true
     }
   }
+
+
   editData() {    
     this.cs.updateCustomer(this.customerToUpdate).then(() => {
       this.isAdded = true;
@@ -83,5 +77,11 @@ export class CustomerPageComponent implements OnInit {
     setTimeout(() => {
       this.router.navigateByUrl('/customerDashboard');
     }, 3500);
+  }
+  logChange(event:any,input:any){
+    console.log(event);
+    console.log(input);
+    
+    
   }
 }

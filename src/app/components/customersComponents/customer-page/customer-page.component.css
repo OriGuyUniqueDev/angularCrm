@@ -10,3 +10,6 @@ input[type="text"],input[type="email"],textarea{
     width: 4rem;
     height: 2rem;
 }
+button:disabled{
+    background-color: #524a61;
+}

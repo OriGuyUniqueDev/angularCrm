@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Customer } from 'src/app/interfaces/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import {trigger,state,style,animate,transition,} from '@angular/animations';
@@ -29,13 +29,18 @@ export class CustomerDashboardComponent implements OnInit {
   showLoader: boolean = true;
   customerArr!: Customer[];
   search:string = ''
+  innerWidth: any;
   filterSearch:keyof Customer = 'firstname'
   constructor(private cs: CustomerService, private modal:NgbModal) {}
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.getAllData();
   }
- 
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
+  }
   getAllData() {
     this.cs.getAllCustomers().subscribe((data: Customer[]) => {      
       this.customerArr = data;

@@ -6,3 +6,6 @@
 small{
     font-size: 1.4rem;
 }
+button:disabled{
+    background-color: #524a61;
+}

@@ -24,27 +24,37 @@
           name="email"
           class="form-control border-2 border-userDarkPurple"
           id="floatingInput"
+          [ngStyle]="{borderLeftWidth:(email?.touched || email?.dirty) ? '0.7rem' : '0.7rem',borderLeftColor:(email.valid &&  (email.value != '')) ? 'green' : 'tomato'}"
           placeholder="name@domain.com"
           [(ngModel)]="user.email"
+          email
+          #email="ngModel"
         />
         <label for="floatingInput">Email address</label>
+        <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
       </div>
       <div class="form-floating password">
         <input
           type="password"
           name="password"
+          [ngStyle]="{borderLeftWidth:(password?.touched || password?.dirty) ? '0.7rem' : '0.7rem',borderLeftColor:(password.valid &&  (password.value != '')) ? 'green' : 'tomato'}"
           class="form-control border-2 border-userDarkPurple"
           id="floatingPassword"
           placeholder="Password"
           [(ngModel)]="user.password"
+          #password="ngModel"
+          minlength="6"
         />
+        <small class="block" *ngIf="!password?.valid &&(password?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - Password must be at least 6 characters</small>
+
         <label for="floatingPassword">Password</label>
       </div>
       <small *ngIf="loginFailed" class="text-red-600">Email or Password is incorrect, try again</small>
-      <small >Not a member? <a customerDashboard="/register">register</a></small>
+      <small >Not a member? <a routerLink="/register">register</a></small>
       <button
         class="w-full h-20 border-userMediumPurple text-3xl font-bold text-userMediumPurple border-4 rounded-lg"
         type="submit"
+        [disabled]="!loginForm.valid"
       >
         Login
       </button>
@@ -52,6 +62,7 @@
       <div
         class="w-full h-20 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
         (click)="loginWithGoogle()"
+        role="button"
       >
         <i class="fa-brands fa-google mr-3"></i> Login With Google
       </div>

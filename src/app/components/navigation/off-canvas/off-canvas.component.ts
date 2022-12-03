@@ -21,6 +21,7 @@ export class OffCanvasComponent implements OnInit {
   logout() {
     sessionStorage.removeItem('email'), sessionStorage.removeItem('isLoggedIn');
     this.us.logout();
+    this.activeOffCanvas.close()
     this.router.navigateByUrl('login');
   }
 }
