@@ -24,6 +24,7 @@ import { AllFilterPipe } from './pipes/all-filter.pipe';
 import { CustomerPageComponent } from './components/customersComponents/customer-page/customer-page.component';
 import { EmployeeCardMobileComponent } from './components/employeeComponents/employee-card-mobile/employee-card-mobile.component';
 import { EmployeePipe } from './pipes/employee.pipe';
+import { DesktopMenuComponent } from './components/navigation/desktop-menu/desktop-menu.component';
 
 
 
@@ -45,6 +46,7 @@ import { EmployeePipe } from './pipes/employee.pipe';
     CustomerPageComponent,
     EmployeeCardMobileComponent,
     EmployeePipe,
+    DesktopMenuComponent,
   ],
   imports: [
     BrowserModule,
