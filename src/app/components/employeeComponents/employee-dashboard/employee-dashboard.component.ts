@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {trigger,state,style,animate,transition,} from '@angular/animations';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/interfaces/employee';
@@ -22,12 +22,17 @@ import { Employee } from 'src/app/interfaces/employee';
 })
 export class EmployeeDashboardComponent implements OnInit {
   name: string = sessionStorage.getItem('email') as string;
+  innerWidth: any;
   employeesArr!:Employee[]
   showLoader: boolean = true;
   search:string = ''
   constructor(private es:EmployeeService) { }
-
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
+  }
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.es.getAllEmployees().subscribe((employeesData:Employee[]) => {
       this.employeesArr = employeesData
       this.showLoader = false

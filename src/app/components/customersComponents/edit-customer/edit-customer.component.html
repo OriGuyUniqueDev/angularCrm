@@ -1,14 +1,15 @@
-<form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="editData()">
-    <h1 class="text-4xl my-5  leading-[1.2]">
-        It's Time to Update a 
-        <span class="text-userMediumPurple font-bold underline boldFont"
-          >Customer</span
-        >
-        <i class="fa-solid fa-exclamation text-userMediumPurple ml-2"></i>
-      </h1>
+
+  <form class="mx-3" #editCustomerForm="ngForm" (ngSubmit)="editData()">
+    <h1 class="text-4xl my-5 leading-[1.2]">
+      It's Time to Update a
+      <span class="text-userMediumPurple font-bold underline boldFont"
+        >Customer</span
+      >
+      <i class="fa-solid fa-exclamation text-userMediumPurple ml-2"></i>
+    </h1>
     <div class="flex flex-col gap-3">
-      <div class=" firstname">
-        <label for="firstname"  class="form-label text-2xl">First Name</label>
+      <div class="firstname">
+        <label for="firstname" class="form-label text-2xl">First Name</label>
         <input
           type="text"
           name="firstname"
@@ -21,10 +22,15 @@
           minlength="2"
           required
         />
-        <small  *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
+        <small
+          *ngIf="!firstname?.valid && firstname?.touched"
+          class="text-danger text-lg"
+          ><i class="fa-solid fa-triangle-exclamation text-danger text-lg"></i>
+          - first name must be at least 2 characters</small
+        >
       </div>
-      <div class=" lastname">
-        <label for="lastname "  class="form-label text-2xl">Last Name</label>
+      <div class="lastname">
+        <label for="lastname " class="form-label text-2xl">Last Name</label>
         <input
           type="text"
           name="lastname"
@@ -36,10 +42,15 @@
           minlength="2"
           required
         />
-        <small  *ngIf="!lastname?.valid &&(lastname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - last name must be at least 2 characters</small>
+        <small
+          *ngIf="!lastname?.valid && lastname?.touched"
+          class="text-danger text-lg"
+          ><i class="fa-solid fa-triangle-exclamation text-danger text-lg"></i>
+          - last name must be at least 2 characters</small
+        >
       </div>
-      <div class=" phone">
-        <label for="phone"  class="form-label text-2xl">Phone</label>
+      <div class="phone">
+        <label for="phone" class="form-label text-2xl">Phone</label>
         <input
           type="text"
           name="phone"
@@ -53,10 +64,15 @@
           minlength="10"
           required
         />
-        <small  *ngIf="!phone?.valid &&(phone?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - phone must be at least 10 characters</small>
+        <small
+          *ngIf="!phone?.valid && phone?.touched"
+          class="text-danger text-lg"
+          ><i class="fa-solid fa-triangle-exclamation text-danger text-lg"></i>
+          - phone must be at least 10 characters</small
+        >
       </div>
       <div class="email">
-        <label for="email"  class="form-label text-2xl">Email Address</label>
+        <label for="email" class="form-label text-2xl">Email Address</label>
         <input
           type="email"
           name="email"
@@ -69,9 +85,26 @@
           #email="ngModel"
           required
         />
-        <small  *ngIf="!email?.valid &&(email?.touched || email?.dirty)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
+        <small
+          *ngIf="!email?.valid && (email?.touched || email?.dirty)"
+          class="text-danger text-lg"
+          ><i class="fa-solid fa-triangle-exclamation text-danger text-lg"></i>
+          - wrong email format, cannot be empty and example@gmail.com</small
+        >
       </div>
-      <button *ngIf="!isAdded; else added" class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center" [disabled]="!editCustomerForm.valid" >Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i></button>
+      <button
+        *ngIf="!isAdded; else added"
+        class="w-full h-20 mb-5 bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
+        [disabled]="!editCustomerForm.valid"
+      >
+        Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i>
+      </button>
     </div>
-    <ng-template  #added><iframe src="https://embed.lottiefiles.com/animation/95088"></iframe></ng-template>
-</form>
+    <ng-template #added
+      ><iframe src="https://embed.lottiefiles.com/animation/95088"></iframe
+    ></ng-template>
+  </form>
+
+<!-- <ng-template #desktop>
+
+</ng-template> -->

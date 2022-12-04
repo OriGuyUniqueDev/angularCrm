@@ -39,6 +39,7 @@ export class CustomerDashboardComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.getAllData();
   }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.innerWidth = window.innerWidth;
@@ -66,5 +67,10 @@ export class CustomerDashboardComponent implements OnInit {
         windowClass:'dark-modal'
       })
       modalRef.componentInstance.id = customer.id
+    }
+    deleteCustomer(customer:Customer){
+      if(confirm(`Are You Sure You Want to Delete: ${customer.firstname} ${customer.lastname}`)){
+        this.cs.deleteCustomer(customer).then(data => console.log(data)).catch((err) => console.log(err))
+      }
     }
 }

@@ -1,132 +1,268 @@
-<div
-  @fade
-  class="w-full circle absolute -z-10 top-0 h-[25%] bg-userOrange"
-></div>
-<app-navbar @fade></app-navbar>
-<div @fade id="headerTitles" class="mx-24 mt-3">
-  <h1 class="text-5xl font-black mt-3">
-    <span class="text-userMediumPurple"
-      >{{ fullName + "'s" }}
-    </span>
-    Card
-  </h1>
-</div>
-<main @fade class="mx-24 mt-24">
-  <form #customerInfoForm="ngForm" (ngSubmit)="editData()" novalidate>
-    <div class="mb-3">
-      <label for="firstname" class="form-label text-3xl text-userMediumPurple"
-        >First Name</label
+<ng-container *ngIf="innerWidth <= 1200; else desktop" >
+  <div
+    @fade
+    class="w-full circle absolute -z-10 top-0 h-[25%] bg-userOrange"
+  ></div>
+  <app-navbar @fade></app-navbar>
+  <div @fade id="headerTitles" class="mx-24 mt-3">
+    <h1 class="text-5xl font-black mt-3">
+      <span class="text-userMediumPurple"
+        >{{ fullName + "'s" }}
+      </span>
+      Card
+    </h1>
+  </div>
+  <main @fade class="mx-24 mt-24">
+    <form #customerInfoForm="ngForm" (ngSubmit)="editData()" novalidate>
+      <div class="mb-3">
+        <label for="firstname" class="form-label text-3xl text-userMediumPurple"
+          >First Name</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          name="firstname"
+          class="form-control form-control-lg"
+          #firstname="ngModel"
+          placeholder="firstname"
+          [(ngModel)]="customerToUpdate.firstname"
+          [value]="customerToUpdate.firstname"
+          id="firstname"
+          minlength="2"
+        />
+        <small *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label text-3xl text-userMediumPurple"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          class="form-control form-control-lg"
+          name="lastname"
+          id="lastname"
+          #lastname="ngModel"
+          minlength="2"
+          [(ngModel)]="customerToUpdate.lastname"
+          [value]="customerToUpdate.lastname"
+        />
+        <small class="block" *ngIf="!lastname?.valid &&(lastname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - last name must be at least 2 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label text-3xl text-userMediumPurple"
+          >Phone</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          class="form-control form-control-lg"
+          id="phone"
+          name="phone"
+          #phone="ngModel"
+          minlength="10"
+          [(ngModel)]="customerToUpdate.phone"
+          [value]="customerToUpdate.phone"
+        />
+        <small class="block" *ngIf="!phone?.valid &&(phone?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - phone must be at least 10 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-3xl text-userMediumPurple"
+          >Email address</label
+        >
+        <input
+          type="email"
+          [disabled]="isDisabled"
+          name="email"
+          class="form-control form-control-lg"
+          id="email"
+          email
+          [value]="customerToUpdate.email"
+          [(ngModel)]="customerToUpdate.email"
+          #email="ngModel"
+        />
+        <small  *ngIf="!email?.valid && (email?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
+      </div>
+      <div class="mb-3">
+        <label for="extraInfo" class="form-label text-3xl text-userMediumPurple"
+          >More Info</label
+        >
+        <textarea
+          [disabled]="isDisabled"
+          class="form-control form-control-lg"
+          id="extraInfo"
+          name="extraInfo"
+          #extraInfo="ngModel"
+          [(ngModel)]="customerToUpdate.extra"
+          [value]="customerToUpdate.extra"
+        >
+        </textarea>
+      </div>
+      <div class="relative form-check form-switch flex gap-3 mb-3">
+        <input
+          class="switch form-check-input switch"
+          type="checkbox"
+          role="switch"
+          id="editDataSwitch"
+          [checked]="isChecked"
+          (click)="enableEdit($event)"
+        />
+        <label
+          class="form-check-label text-3xl text-userMediumPurple"
+          for="editDataSwitch"
+          >Edit Data ?</label
+        >
+      </div>
+  
+      <button
+        @fade
+        *ngIf="!isAdded; else added"
+        class="w-full h-20 shadow-2xl mb-5 mt-3 z-50 relative bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
+        [disabled]="!customerInfoForm.valid"
       >
-      <input
-        type="text"
-        [disabled]="isDisabled"
-        name="firstname"
-        class="form-control form-control-lg"
-        #firstname="ngModel"
-        placeholder="firstname"
-        [(ngModel)]="customerToUpdate.firstname"
-        [value]="customerToUpdate.firstname"
-        id="firstname"
-        minlength="2"
-      />
-      <small *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
-    </div>
-    <div class="mb-3">
-      <label for="lastname" class="form-label text-3xl text-userMediumPurple"
-        >Last Name</label
+        Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i>
+      </button>
+      <ng-template #added
+        ><iframe
+          class="relative bottom-20 mx-auto"
+          src="https://embed.lottiefiles.com/animation/95088"
+        ></iframe
+      ></ng-template>
+    </form>
+  </main>
+  <!-- !customerInfoForm.valid || -->
+</ng-container>
+<ng-template #desktop>
+  <app-desktop-menu></app-desktop-menu>
+  <div
+    @fade
+    class="w-full circle absolute -z-10 top-0 h-[20rem] bg-userOrange"
+  ></div>
+  <div @fade id="headerTitles" class="mx-[25rem] py-14 ">
+    <h1 class="text-8xl font-black mt-3">
+      <span class="text-userMediumPurple"
+        >{{ fullName + "'s" }}
+      </span>
+      Card
+    </h1>
+  </div>
+  <main @fade class="px-[25rem] flex justify-between  w-full mt-52">
+    <form class="w-[50rem]"  #customerInfoForm="ngForm" (ngSubmit)="editData()" novalidate>
+      <div class="mb-3">
+        <label for="firstname" class="form-label text-4xl text-userMediumPurple"
+          >First Name</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          name="firstname"
+          class="form-control form-control-lg h-16 text-3xl "
+          #firstname="ngModel"
+          placeholder="firstname"
+          [(ngModel)]="customerToUpdate.firstname"
+          [value]="customerToUpdate.firstname"
+          id="firstname"
+          minlength="2"
+        />
+        <small *ngIf="!firstname?.valid &&(firstname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - first name must be at least 2 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label text-4xl text-userMediumPurple"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          class="form-control form-control-lg h-16 text-3xl"
+          name="lastname"
+          id="lastname"
+          #lastname="ngModel"
+          minlength="2"
+          [(ngModel)]="customerToUpdate.lastname"
+          [value]="customerToUpdate.lastname"
+        />
+        <small class="block" *ngIf="!lastname?.valid &&(lastname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - last name must be at least 2 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label text-4xl text-userMediumPurple"
+          >Phone</label
+        >
+        <input
+          type="text"
+          [disabled]="isDisabled"
+          class="form-control form-control-lg h-16 text-3xl"
+          id="phone"
+          name="phone"
+          #phone="ngModel"
+          minlength="10"
+          [(ngModel)]="customerToUpdate.phone"
+          [value]="customerToUpdate.phone"
+        />
+        <small class="block" *ngIf="!phone?.valid &&(phone?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - phone must be at least 10 characters</small>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-4xl text-userMediumPurple"
+          >Email address</label
+        >
+        <input
+          type="email"
+          [disabled]="isDisabled"
+          name="email"
+          class="form-control form-control-lg h-16 text-3xl"
+          id="email"
+          email
+          [value]="customerToUpdate.email"
+          [(ngModel)]="customerToUpdate.email"
+          #email="ngModel"
+        />
+        <small  *ngIf="!email?.valid && (email?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
+      </div>
+      <div class="mb-3">
+        <label for="extraInfo" class="form-label text-4xl text-userMediumPurple"
+          >More Info</label
+        >
+        <textarea
+          [disabled]="isDisabled"
+          class="form-control form-control-lg h-28 text-3xl"
+          id="extraInfo"
+          name="extraInfo"
+          #extraInfo="ngModel"
+          [(ngModel)]="customerToUpdate.extra"
+          [value]="customerToUpdate.extra"
+        >
+        </textarea>
+      </div>
+      <div class="relative form-check form-switch flex gap-3 mb-3">
+        <input
+          class="switch form-check-input switch"
+          type="checkbox"
+          role="switch"
+          id="editDataSwitch"
+          [checked]="isChecked"
+          (click)="enableEdit($event)"
+        />
+        <label
+          class="form-check-label text-4xl text-userMediumPurple"
+          for="editDataSwitch"
+          >Edit Data ?</label
+        >
+      </div>
+  
+      <button
+        @fade
+        *ngIf="!isAdded; else added"
+        class="w-full h-20 shadow-2xl mb-5 mt-3 z-50 relative bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
+        [disabled]="!customerInfoForm.valid"
       >
-      <input
-        type="text"
-        [disabled]="isDisabled"
-        class="form-control form-control-lg"
-        name="lastname"
-        id="lastname"
-        #lastname="ngModel"
-        minlength="2"
-        [(ngModel)]="customerToUpdate.lastname"
-        [value]="customerToUpdate.lastname"
-      />
-      <small class="block" *ngIf="!lastname?.valid &&(lastname?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - last name must be at least 2 characters</small>
-    </div>
-    <div class="mb-3">
-      <label for="phone" class="form-label text-3xl text-userMediumPurple"
-        >Phone</label
-      >
-      <input
-        type="text"
-        [disabled]="isDisabled"
-        class="form-control form-control-lg"
-        id="phone"
-        name="phone"
-        #phone="ngModel"
-        minlength="10"
-        [(ngModel)]="customerToUpdate.phone"
-        [value]="customerToUpdate.phone"
-      />
-      <small class="block" *ngIf="!phone?.valid &&(phone?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - phone must be at least 10 characters</small>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label text-3xl text-userMediumPurple"
-        >Email address</label
-      >
-      <input
-        type="email"
-        [disabled]="isDisabled"
-        name="email"
-        class="form-control form-control-lg"
-        id="email"
-        email
-        [value]="customerToUpdate.email"
-        [(ngModel)]="customerToUpdate.email"
-        #email="ngModel"
-      />
-      <small  *ngIf="!email?.valid && (email?.touched)" class="text-danger  text-lg"><i class="fa-solid fa-triangle-exclamation text-danger  text-lg"></i> - wrong email format, cannot be empty and example@gmail.com</small>
-    </div>
-    <div class="mb-3">
-      <label for="extraInfo" class="form-label text-3xl text-userMediumPurple"
-        >More Info</label
-      >
-      <textarea
-        [disabled]="isDisabled"
-        class="form-control form-control-lg"
-        id="extraInfo"
-        name="extraInfo"
-        #extraInfo="ngModel"
-        [(ngModel)]="customerToUpdate.extra"
-        [value]="customerToUpdate.extra"
-      >
-      </textarea>
-    </div>
-    <div class="relative form-check form-switch flex gap-3 mb-3">
-      <input
-        class="switch form-check-input switch"
-        type="checkbox"
-        role="switch"
-        id="editDataSwitch"
-        [checked]="isChecked"
-        (click)="enableEdit($event)"
-      />
-      <label
-        class="form-check-label text-3xl text-userMediumPurple"
-        for="editDataSwitch"
-        >Edit Data ?</label
-      >
-    </div>
-
-    <button
-      @fade
-      *ngIf="!isAdded; else added"
-      class="w-full h-20 shadow-2xl mb-5 mt-3 z-50 relative bg-userMediumPurple text-3xl font-bold text-white rounded-lg flex flex-row justify-center items-center"
-      [disabled]="!customerInfoForm.valid"
-    >
-      Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i>
-    </button>
-    <ng-template #added
-      ><iframe
-        class="relative bottom-20 mx-auto"
-        src="https://embed.lottiefiles.com/animation/95088"
-      ></iframe
-    ></ng-template>
-  </form>
-</main>
-<!-- !customerInfoForm.valid || -->
+        Edit <i class="fa-solid fa-wand-magic-sparkles ml-3"></i>
+      </button>
+      <ng-template #added
+        ><iframe
+          class="relative bottom-20 mx-auto"
+          src="https://embed.lottiefiles.com/animation/95088"
+        ></iframe
+      ></ng-template>
+    </form>
+    <iframe width="500" height="500"  src="https://embed.lottiefiles.com/animation/127286"></iframe>
+  </main>
+</ng-template>

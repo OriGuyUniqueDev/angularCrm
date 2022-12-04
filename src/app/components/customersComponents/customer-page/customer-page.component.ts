@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Customer } from 'src/app/interfaces/customer';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -40,6 +40,7 @@ export class CustomerPageComponent implements OnInit {
   fullName!:string
   isAdded: boolean = false;
   isChecked: boolean = false;
+  innerWidth: any;
   constructor(
     private cs: CustomerService,
     private route: ActivatedRoute,
@@ -47,6 +48,8 @@ export class CustomerPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+
     this.cs
       .getOneCustomerById(window.history.state.id)
       .subscribe((customer:Customer) => {
@@ -56,6 +59,10 @@ export class CustomerPageComponent implements OnInit {
           : (this.customerToUpdate.extra = 'no extra data');
         this.fullName = `${this.customerToUpdate.firstname} ${this.customerToUpdate.lastname}`
       });
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
   }
   enableEdit(data: any) {
 
