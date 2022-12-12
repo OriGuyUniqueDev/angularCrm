@@ -13,3 +13,21 @@ button:disabled{
 button{
     transition: 0.25s linear all;
 }
+.or{
+    animation: rotate 10s infinite backwards;
+}
+
+@keyframes rotate {
+    0%{
+        rotate: 0deg;
+        transform: translateY(0);
+    }
+    50%{
+        rotate: 180deg;
+        translate: 20%;
+    }
+    100%{
+        rotate: 360deg;
+        transform: translateY(0);
+    }
+}

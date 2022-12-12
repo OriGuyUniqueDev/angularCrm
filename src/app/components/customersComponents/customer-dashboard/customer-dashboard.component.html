@@ -99,9 +99,9 @@
     </div>
     <div id="searchContainer" class="w-[44rem] mt-8">
       <input
-        class="form-control-lg w-full h-16"
+        class="form-control-lg w-full h-16 text-2xl"
         type="search"
-        placeholder="Search"
+        [placeholder]="placeholder |titlecase"
         [(ngModel)]="search"
       />
     </div>
@@ -111,7 +111,7 @@
         (change)="radioChange($event)"
         #filterForm="ngForm"
         @fade
-        class="cardMenu w-[44rem] relative justify-between  flex  gap-3 border-2 border-userDarkPurple rounded-2xl py-3 px-3"
+        class="cardMenu w-[44rem] relative justify-between  flex  gap-3 border-2 border-userDarkPurple border-opacity-5 hover:border-opacity-100 rounded-2xl py-3 px-3"
       >
         <div class="flex gap-2 flex-row text-3xl text-bold">
           <input
@@ -151,27 +151,27 @@
       <thead>
         <tr>
           <th
-            class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white"
+            class="text-5xl py-2 px-6 bg-userMediumPurple text-white"
           >
             ID
           </th>
           <th
-            class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white"
+            class="text-5xl py-2 px-6 whitespace-nowrap bg-userMediumPurple text-white"
           >
-            Name
+            Full Name
           </th>
           <th
-            class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white"
+            class="text-5xl py-2 px-6 bg-userMediumPurple text-white"
           >
             Phone
           </th>
           <th
-            class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white"
+            class="text-5xl py-2 px-6 bg-userMediumPurple text-white"
           >
             Email Address
           </th>
           <th
-            class="text-5xl border-2 py-2 px-6 bg-userMediumPurple text-white"
+            class="text-5xl py-2 px-6 bg-userMediumPurple text-white"
           >
             Actions
           </th>
@@ -179,36 +179,37 @@
       </thead>
       <tbody
         *ngFor="let customer of customerArr | allFilter : filterSearch:search; let i = index"
+        class="odd:bg-indigo-50"
       >
-        <tr>
+        <tr >
           <td
-            class="text-4xl border-userDarkPurple border-2 py-2 px-6 text-center"
+            class="text-4xl border-userDarkPurple py-2 px-6 text-center"
           >
             {{ i+1 }}
           </td>
-          <td class="text-4xl border-userDarkPurple border-2 py-2 px-6">
-            {{ customer.firstname }} {{ customer.lastname }}
+          <td class="text-4xl border-userDarkPurple whitespace-nowrap py-2 px-6 font-bold">
+           {{customer.firstname |titlecase}} {{customer.lastname |titlecase}}
           </td>
-          <td class="text-4xl border-userDarkPurple border-2 py-2 px-6">
+          <td class="text-4xl border-userDarkPurple py-2 px-6">
             {{ customer.phone }}
           </td>
-          <td class="text-4xl border-userDarkPurple border-2 py-2 px-6">
+          <td class="text-4xl border-userDarkPurple py-2 px-6">
             {{ customer.email }}
           </td>
           <td
-            class="text-4xl flex justify-evenly border-userDarkPurple border-2 py-2 px-6"
+            class="text-4xl flex justify-evenly border-userDarkPurple  py-2 px-6"
           >
-            <i
+            <i role="button"
               class="fa-solid fa-circle-info"
               [routerLink]="customer.id" [state]="customer"
             ></i>
             |
-            <i
+            <i role="button"
               (click)="editCustomer(customer)"
               class="fa-solid fa-pen text-green-500"
             ></i>
             |
-            <i
+            <i role="button"
               class="fa-solid fa-trash text-red-500"
               (click)="deleteCustomer(customer)"
             ></i>

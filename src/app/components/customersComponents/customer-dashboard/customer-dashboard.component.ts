@@ -33,6 +33,7 @@ export class CustomerDashboardComponent implements OnInit {
   search:string = ''
   innerWidth: any;
   filterSearch:keyof Customer = 'firstname'
+  placeholder:string = `Search by ${this.filterSearch}`
   constructor(private cs: CustomerService, private modal:NgbModal) {}
 
   ngOnInit(): void {
@@ -59,6 +60,7 @@ export class CustomerDashboardComponent implements OnInit {
   }
   radioChange(event:any){
     this.filterSearch = event.target.defaultValue
+    this.placeholder = `Search by ${this.filterSearch}`
   }
     editCustomer(customer:Customer){
       const modalRef = this.modal.open(EditCustomerComponent,{

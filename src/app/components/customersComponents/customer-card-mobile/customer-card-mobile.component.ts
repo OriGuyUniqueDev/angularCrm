@@ -40,7 +40,7 @@ editCustomer(customer:Customer){
   const modalRef = this.modal.open(EditCustomerComponent,{
     size:'lg',
     centered:true,
-    windowClass:'dark-modal'
+    windowClass:'dark-modal',
   })
   modalRef.componentInstance.id = customer.id
 }
