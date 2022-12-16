@@ -1,27 +1,62 @@
-# AngularCRM
+# CRM Project Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+Welcome to the documentation for the CRM project - a customer relationship management tool that allows users to view, create, update, and delete customer data in a database. The database used for this project is Firebase, a cloud-based database provided by Google.
 
-## Development server
+In addition to managing customer data, this CRM also includes a section for managing employee data. The application is designed to be responsive and can be used on both desktop and mobile devices.
+## Deployment
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To access the project, please visit the following link:
 
-## Code scaffolding
+https://angularcrm-origuy.web.app/login
+## Features
+- Responsive design for both mobile and desktop devices
+- All CRUD operations on customer dashboard
+- Registration and authentication for users
+- Managed database using Firebase
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Client**: Angular, TypeScript, Tailwind CSS
 
-## Build
+**Server**: Firebase
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Run Locally
 
-## Running unit tests
+To run the project locally, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the project:
 
-## Running end-to-end tests
+```bash
+  git clone https://github.com/OriGuyUniqueDev/angularCrm.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Go to the project directory:
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+  cd angularCrm
+```
+
+3. Install dependencies:
+
+```bash
+  npm install
+```
+
+4. Start the server:
+
+```bash
+  ng serve -o
+```
+## Feedback
+
+If you have any feedback on the project, please reach out to the author at origuydev@gmail.com.
+
+
+## Authors
+
+- [@OriGuyUniqueDev](https://github.com/OriGuyUniqueDev)
+
+
+
+
+Designed and Developed by Ori Guy

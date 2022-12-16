@@ -20,3 +20,4 @@ export class AllFilterPipe implements PipeTransform {
   }
 
 }
+
